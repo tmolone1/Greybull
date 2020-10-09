@@ -1,3 +1,4 @@
+rm(list=ls())
 library(readr)
 library(dplyr)
 library(readxl)
@@ -5,6 +6,9 @@ library(tidyverse)
 #read data
 out1<-read.csv("Greybull.csv", header = FALSE, col.names = seq(1,16))
 tbl<-read_excel("201312_Tables1to3_TBL.xls")
+SZ<-read_csv("SZ_Thickness_vertices.csv") # smear zone thickness 
+grnd<-read_csv("site_ground.csv") # ground elevations above smear zone
+SZ_pts<-read_csv("SZ_vertices.csv") # smear zone elevations
 #find where the table breaks in the output file are
 idx1<-max(which(out1$X1=="Source Mass Losses Through Time"))
 idx2<-max(which(out1$X1=="Source Zone Composition Through Time"))
@@ -65,3 +69,31 @@ colnames(Soil_props)<-c("property", "character","value")
 Soil_props$value[2:7]<-Soil_props$character[2:7]
 Soil_props$value<-as.double(Soil_props$value)
 
+# calculations on smear zone thickness exported from 3D model
+SourceArea_props$value[1] <- mean(SZ$z) # LNAPL thickness
+SourceArea_props$value[3] <- signif(quantile(SZ$x,.9)-quantile(SZ$x,.1),1) # smear zone length
+SourceArea_props$value[4] <- signif(quantile(SZ$y,.9)-quantile(SZ$y,.1),1) # smear zone width
+SourceArea_props$value[2] <- (mean(grnd$z) - quantile(SZ_pts$z,.9)) # average depth to top of smear zone
+
+SourceArea_props$source <- c(rep("3D Model",4), "default")
+
+# GW conditions calculations and sources
+GW_conditions$value[1] <- mean(c(0.0023, 0.028))
+
+GW_conditions$source <- c("Average for shallow monitoring wells in SCR Table 3-2", "calculated from hydraulic conductivity and gradient", "calculated from hydraulic conductivity, gradient, and effective porosity")
+
+# Soil Props
+Soil_props$value[6] <- 0.43
+Soil_props$character[6] <- "0.43"
+Soil_props$value[7] <- (1.24e-6/100*60*60*24) # unit conversion from cm/s to m/d
+Soil_props$character[6] <- Soil_props$value[7]
+
+Soil_props$source <- c("Boring Logs", rep("default",4), "Value used in MTGW evaluation, SCR page 2-4", "Value used in MTGW evaluation (for sandstone), SCR page 2-4, converted to meters/day")
+
+# transport Props
+transport_props$source <- c(rep("Contaminant Transport Modeling Report Table 1",4), rep("default",2))
+
+LNAPL_props$source<-rep("assumed/default",nrow(LNAPL_props))
+constituent_props$source<-rep("assumed/default",nrow(constituent_props))
+
+                        
