@@ -96,4 +96,37 @@ transport_props$source <- c(rep("Contaminant Transport Modeling Report Table 1",
 LNAPL_props$source<-rep("assumed/default",nrow(LNAPL_props))
 constituent_props$source<-rep("assumed/default",nrow(constituent_props))
 
-                        
+#bring the modified values back into the CSV and export it                        
+# solute transport properties
+idx1<-max(which(out1$X1=="Solute Transport Properties"))
+idx2<-max(which(out1$X1=="Miscellaneous Calculation Options"))
+out1[(idx1+2):(idx2-1),1:ncol(transport_props)]<-transport_props
+out1[(idx1+1),ncol(transport_props)]<-"Source"
+
+# LNAPL constituents
+idx2<-max(which(out1$X1=="Constituent"))
+out1[(idx2+1):(idx1-1),1:ncol(constituent_props)]<-constituent_props
+out1[(idx2),ncol(constituent_props)]<-"Source"
+
+# LNAPL properties
+idx1<-max(which(out1$X1=="LNAPL Properties"))
+out1[(idx1+2):(idx2-1),1:ncol(LNAPL_props)]<-LNAPL_props
+out1[(idx1+1),ncol(LNAPL_props)]<-"Source"
+
+# Source Area Parameters
+idx2<-max(which(out1$X1=="Source Area Parameters"))
+out1[(idx2+2):(idx1-1),1:ncol(SourceArea_props)]<-SourceArea_props
+out1[(idx2+1),ncol(SourceArea_props)]<-"Source"
+
+# Groundwater Conditions
+idx1<-max(which(out1$X1=="Groundwater Conditions"))
+out1[(idx1+2):(idx2-1),1:ncol(GW_conditions)]<-GW_conditions
+out1[(idx1+1),ncol(GW_conditions)]<-"Source"
+
+# Soil Properties
+idx2<-max(which(out1$X1=="Soil Properties"))
+out1[(idx2+2):(idx1-1),1:ncol(Soil_props)]<-Soil_props
+out1[(idx2+1),ncol(Soil_props)]<-"Source"
+
+#write output
+write_csv(out1, "out1.csv", col_names = FALSE)
