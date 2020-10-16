@@ -71,9 +71,9 @@ Soil_props$value<-as.double(Soil_props$value)
 
 # calculations on smear zone thickness exported from 3D model
 SourceArea_props$value[1] <- mean(SZ$z) # LNAPL thickness
-SourceArea_props$value[3] <- signif(quantile(SZ$x,.9)-quantile(SZ$x,.1),1) # smear zone length
-SourceArea_props$value[4] <- signif(quantile(SZ$y,.9)-quantile(SZ$y,.1),1) # smear zone width
-SourceArea_props$value[2] <- (mean(grnd$z) - quantile(SZ_pts$z,.9)) # average depth to top of smear zone
+SourceArea_props$value[3] <- signif(quantile(SZ$x,.75)-quantile(SZ$x,.25),1) # smear zone length
+SourceArea_props$value[4] <- signif(quantile(SZ$y,.75)-quantile(SZ$y,.25),1) # smear zone width
+SourceArea_props$value[2] <- (mean(grnd$z) - quantile(SZ_pts$z,.95)) # average depth to top of smear zone
 
 SourceArea_props$source <- c(rep("3D Model",4), "default")
 
@@ -130,3 +130,4 @@ out1[(idx2+1),ncol(Soil_props)]<-"Source"
 
 #write output
 write_csv(out1, "out1.csv", col_names = FALSE)
+
