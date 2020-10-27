@@ -11,6 +11,14 @@ tph_shp<- SpatialPointsDataFrame(tph_data[!is.na(tph_data$`X Coordinate`),c("X C
                                         data= tph_data[!is.na(tph_data$`X Coordinate`),],
                                         proj4string = CRS("+init=EPSG:3737")) # wyoming state plane east central NAD83
 plot(tph_shp)
+writeOGR(tph_shp, dsn = getwd(), layer = "tph", driver = "ESRI Shapefile", overwrite_layer=TRUE)
+tph_data$`Location ID`[tph_data$`DRO+GRO`>1000]
+points(tph_shp[tph_shp$`DRO+GRO`>1000,], pch=19)
+which(tph_shp$`Location ID` %Like% 'AOC5-BH6%')
+tph_shp$`Location ID`[which(grepl('^AOC5-BH6',tph_shp$`Location ID`))]
+points(tph_shp[c(28,29),],pch="X")
+
+tph_shp$`Location ID`=='AOC5-BH9%'
 
 max(tph_shp[tph_shp$`DRO+GRO`>1000,]$`X Coordinate`)-min(tph_shp[tph_shp$`DRO+GRO`>1000,]$`X Coordinate`)
 max(tph_shp[tph_shp$`DRO+GRO`>1000,]$`Y Coordinate`)-min(tph_shp[tph_shp$`DRO+GRO`>1000,]$`Y Coordinate`)
@@ -21,7 +29,10 @@ sn<-function (TPH, phi, rho, rhop) {
   return(sn)
   }
 TPH<-mean(tph_shp[tph_shp$`DRO+GRO`>1000,]$`DRO+GRO`) # mean TPH in soil samples with total TPH above 1000, i.e., indicative of LNAPL
+TPH<-quantile(tph_shp[tph_shp$`DRO+GRO`>1000,]$`DRO+GRO`,.9)
 rhop<-2.65  # particle density
 rho<-0.8  # LNAPL density
 phi<-0.43  # porosity
 sn(TPH,phi,rho,rhop)  # average LNAPL saturation
+quantile(tph_shp[tph_shp$`DRO+GRO`>1000,]$`X Coordinate`,.75)-quantile(tph_shp[tph_shp$`DRO+GRO`>1000,]$`X Coordinate`,0.25)
+quantile(tph_shp[tph_shp$`DRO+GRO`>1000,]$`Y Coordinate`,.75)-quantile(tph_shp[tph_shp$`DRO+GRO`>1000,]$`Y Coordinate`,0.25)
