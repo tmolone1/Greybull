@@ -1,5 +1,5 @@
 ---
-title: "Appendix A"
+title: "Attachment C"
 author: "Longevity Modeling Memo, Former Gordon Oil Refinery, Greybull, Wyoming"
 date: "10/29/2020"
 output:
@@ -18,9 +18,12 @@ The Site Data Quality Objectives (DQOs) specify criteria to determine whether or
 ```{r cars, include=TRUE, echo=FALSE}
 library(knitr)
 load("tbl1.Rda")
-kable(tbl1)
+kable(tbl1,format="html")
+
+
 ```
- 
+
+<br>
 The mean of the above values of DRO+GRO is:
 
 ```{r mean, echo=FALSE}

@@ -13,6 +13,7 @@ print(fc_list)
 fc <- readOGR(dsn=fgdb,layer="Smear_Zone_Eval")
 dirty<-fc$Location[fc$SZ_Presence_Analytical=="Dirty"]
 tbl1<-as_tibble(tph_shp[tph_shp$`DRO+GRO`>250,c(1,4,17)])
+tbl1$Date.Sampled<-as.Date(tbl1$Date.Sampled)
 
 tph_shp<- SpatialPointsDataFrame(tph_data[!is.na(tph_data$`X Coordinate`),c("X Coordinate","Y Coordinate")],
                                         data= tph_data[!is.na(tph_data$`X Coordinate`),],
