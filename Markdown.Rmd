@@ -1,0 +1,57 @@
+---
+title: "Appendix A"
+author: "Longevity Modeling Memo, Former Gordon Oil Refinery, Greybull, Wyoming"
+date: "10/29/2020"
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=TRUE, echo=FALSE}
+```
+
+## Site TPH Data
+
+The Site Data Quality Objectives (DQOs) specify criteria to determine whether or not the smear zone has been both horizontally and vertically delineated. One of these criteria was that Total Petroleum Hydrcarbons (TPH) concentrations, including both Diesel Range Organics (DRO) and Gasoline Range Organics (GRO) exceeding 250 mg/kg are considered indicative of the presence of LNAPL (see SCR Chapter 9).  The following soil samples from the site meet this criteria:
+
+```{r cars, include=TRUE, echo=FALSE}
+library(knitr)
+load("tbl1.Rda")
+kable(tbl1)
+```
+ 
+The mean of the above values of DRO+GRO is:
+
+```{r mean, echo=FALSE}
+mean(tbl1$DRO.GRO)
+```
+
+## TPH to LNAPL Saturation Conversion
+
+The conversion from TPH to LNAPL saturation uses the grain density based equation described in http://naplansr.com/conversion-of-tph-to-napl-saturation-volume-2-issue-1-january-2012/.  This equation is:
+$$S_n = TPH \cdot \left( \frac{(1-{\phi}) \cdot Grain \, Density \cdot 10^{-6}}{\phi\rho} \right)$$
+where $\phi$ = porosity and $\rho$ = LNAPL density.
+
+Using this equation and the following:  
+ * TPH = 4618.5 (the value calculated from the data above)  
+ * Grain Density = 2.65 g/cm3  
+ * LNAPL Density = 0.8 g/cm3  
+ * porosity = 0.348   
+
+LNAPL saturation $S_n$ is:
+
+```{r sn, echo=FALSE}
+sn<-function (TPH, phi, rho, rhop) {
+  sn=TPH*(1-phi)*rhop*10^-6/(phi*rho)
+  return(sn)
+  }
+TPH<-mean(tbl1$DRO.GRO) # mean TPH in soil samples with total TPH above 1000, i.e., indicative of LNAPL
+rhop<-2.65  # particle density
+rho<-0.8  # LNAPL density
+phi<-0.348  # porosity
+sn(TPH,phi,rho,rhop)  # average LNAPL saturation
+```
+
+This value (2.87%) is consistent with direct measurement of LNAPL saturation in site soil samples as reported in SECOR (2007) Appendix E.  The average product saturation reported in SECOR (2007) Appendix E is 2.0%.
+

@@ -1,0 +1,281 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Appendix A},
+  pdfauthor={Longevity Modeling Memo, Former Gordon Oil Refinery, Greybull, Wyoming},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Appendix A}
+\author{Longevity Modeling Memo, Former Gordon Oil Refinery, Greybull, Wyoming}
+\date{10/29/2020}
+
+\begin{document}
+\maketitle
+
+\hypertarget{site-tph-data}{%
+\subsection{Site TPH Data}\label{site-tph-data}}
+
+The Site Data Quality Objectives (DQOs) specify criteria to determine
+whether or not the smear zone has been both horizontally and vertically
+delineated. One of these criteria was that Total Petroleum Hydrcarbons
+(TPH) concentrations, including both Diesel Range Organics (DRO) and
+Gasoline Range Organics (GRO) exceeding 250 mg/kg are considered
+indicative of the presence of LNAPL (see SCR Chapter 9). The following
+soil samples from the site meet this criteria:
+
+\begin{longtable}[]{@{}llrrr@{}}
+\toprule
+Location.ID & Date.Sampled & DRO.GRO & X.Coordinate &
+Y.Coordinate\tabularnewline
+\midrule
+\endhead
+AOC2-TRCH1-N15 (5 ft) & 2004-09-27 00:00:00 & 311.40 & 1123020 &
+1778437\tabularnewline
+AOC2-TRCH1-N45 (12 ft) & 2004-09-27 00:00:00 & 3000.00 & 1123021 &
+1778407\tabularnewline
+AOC2-TRCH1-N75 (6 ft) & 2004-09-27 00:00:00 & 2745.00 & 1123022 &
+1778376\tabularnewline
+AOC2-TRCH2-W15 (13 ft) & 2004-09-27 00:00:00 & 1408.80 & 1123030 &
+1778411\tabularnewline
+AOC2-TRCH2-W17 (5 ft) & 2004-09-27 00:00:00 & 803.00 & 1123035 &
+1778411\tabularnewline
+AOC3-BH2 (10 ft) & 2004-10-16 00:00:00 & 733.00 & 1123138 &
+1778403\tabularnewline
+AOC4-BH2 (10 ft) & 2004-10-16 00:00:00 & 352.70 & 1123201 &
+1778318\tabularnewline
+AOC4-BH3 (10 ft) & 2004-10-17 00:00:00 & 2080.00 & 1123149 &
+1778300\tabularnewline
+AOC4-TP2 (1 ft) & 2004-09-23 00:00:00 & 1510.00 & 1123162 &
+1778283\tabularnewline
+AOC4-TP2 (6.5 ft) & 2004-09-23 00:00:00 & 1100.00 & 1123162 &
+1778283\tabularnewline
+AOC4-TP4 (5 ft) & 2004-09-23 00:00:00 & 1895.00 & 1123172 &
+1778219\tabularnewline
+AOC4-TRCH1-N10 (11 ft) & 2004-09-23 00:00:00 & 2250.00 & 1123149 &
+1778381\tabularnewline
+AOC4-TRCH1-S20 (11 ft) Dup & 2004-09-29 00:00:00 & 1510.00 & 1123150 &
+1778343\tabularnewline
+AOC4-TRCH2-S12 (9 ft) & 2004-09-29 00:00:00 & 1759.00 & 1123182 &
+1778176\tabularnewline
+AOC4-TRCH2-S12 (9 ft) Dup & 2004-09-29 00:00:00 & 1635.00 & 1123182 &
+1778176\tabularnewline
+AOC4-TRCH2-S95 (11 ft) & 2004-09-29 00:00:00 & 1320.00 & 1123192 &
+1778259\tabularnewline
+AOC5-BH4 (6-7 ft) & 2004-10-16 00:00:00 & 3230.00 & 1123037 &
+1778077\tabularnewline
+AOC5-MW11 (6-7 ft) & 2004-10-14 00:00:00 & 2512.00 & 1123131 &
+1778083\tabularnewline
+AOC5-TRCH1-S30 (4 ft) & 2004-09-22 00:00:00 & 5820.00 & 1122994 &
+1778181\tabularnewline
+AOC5-TRCH2-N69 (13 ft) & 2004-09-24 00:00:00 & 2700.00 & 1123072 &
+1778154\tabularnewline
+AOC5-TRCH2-S5 (5 ft) & 2004-09-24 00:00:00 & 620.25 & 1123039 &
+1778067\tabularnewline
+AOC5-TRCH3-E5 (6 ft) & 2004-09-28 00:00:00 & 3219.00 & 1123120 &
+1778179\tabularnewline
+AOC5-TRCH3-E7 (10.5 ft) & 2004-09-28 00:00:00 & 4017.00 & 1123120 &
+1778179\tabularnewline
+AOC5-TRCH4-W46 (12 ft) & 2004-09-29 00:00:00 & 1520.00 & 1123088 &
+1778135\tabularnewline
+AOC5-TRCH5-E26 (6 ft) & 2004-09-28 00:00:00 & 5140.00 & 1123071 &
+1778098\tabularnewline
+AOC5-TRCH5-E4 (12 ft) & 2004-09-28 00:00:00 & 7880.00 & 1123090 &
+1778092\tabularnewline
+AOC5-TRCH5-E4 (2 ft) & 2004-09-27 00:00:00 & 16280.00 & 1123090 &
+1778092\tabularnewline
+AOC5-TRCH5-W37 (11 ft) & 2004-09-28 00:00:00 & 986.00 & 1123048 &
+1778107\tabularnewline
+AOC5-TRCH6-NW23 (12 ft) & 2004-09-28 00:00:00 & 1606.10 & 1123188 &
+1778095\tabularnewline
+AOC5-TRCH6-SE25 (2.5 ft) & 2004-09-28 00:00:00 & 900.25 & 1123219 &
+1778076\tabularnewline
+AOC5-TRCH6-SE25 (4.5 ft) & 2004-09-28 00:00:00 & 23029.00 & 1123219 &
+1778076\tabularnewline
+AOC5-TRCH6-SE5 (10 ft) & 2004-09-28 00:00:00 & 6819.00 & 1123241 &
+1778062\tabularnewline
+AOC5-TRCH7-NE42 (3 ft) & 2004-09-29 00:00:00 & 84089.00 & 1123208 &
+1778067\tabularnewline
+F6-Subs (3.5-5 ft) & 2013-10-18 09:00:00 & 911.60 & 1123011 &
+1778396\tabularnewline
+F6-Subs (7.5-9 ft) & 2013-10-18 09:00:00 & 290.20 & 1123011 &
+1778396\tabularnewline
+F6-Surf (0-1 ft) & 2013-10-18 09:00:00 & 532.20 & 1123011 &
+1778396\tabularnewline
+F9(E)-Surf (0-1 ft) & 2013-10-19 13:30:00 & 522.00 & 1123005 &
+1778129\tabularnewline
+G8-Surf (0-1 ft) & 2013-10-01 13:20:00 & 458.30 & 1123075 &
+1778227\tabularnewline
+H10-Subs (3.5-6 ft) & 2013-10-17 13:30:00 & 645.00 & 1123163 &
+1778044\tabularnewline
+H10-Surf (0-1 ft) & 2013-10-17 13:20:00 & 1130.00 & 1123163 &
+1778044\tabularnewline
+H6-Subs (11-12.5 ft) & 2013-10-16 13:50:00 & 4900.00 & 1123192 &
+1778420\tabularnewline
+I10(W)-Surf (0-1 ft) & 2013-10-17 11:40:00 & 542.10 & 1123225 &
+1778011\tabularnewline
+I7-Surf (0-1 ft) & 2013-10-05 13:10:00 & 520.00 & 1123253 &
+1778322\tabularnewline
+J6-Surf (0-1 ft) & 2013-10-16 10:10:00 & 370.20 & 1123346 &
+1778393\tabularnewline
+MW-12 (5 ft) & 2004-10-13 00:00:00 & 4980.00 & 1123215 &
+1778092\tabularnewline
+MW-7 (10.5-11.5 ft) & 2004-10-13 00:00:00 & 7240.00 & 1123195 &
+1778378\tabularnewline
+SASB-4 (0-1 ft) & 2009-07-01 00:00:00 & 262.10 & 1123055 &
+1778365\tabularnewline
+SASB-4 (2-6 ft) & 2009-07-01 00:00:00 & 544.80 & 1123055 &
+1778365\tabularnewline
+SASB-4 (9-11 ft) & 2009-07-01 00:00:00 & 1823.00 & 1123055 &
+1778365\tabularnewline
+TP-1 (0-8 ft) & 2000-11-22 00:00:00 & 33000.00 & 1123107 &
+1778185\tabularnewline
+TP-2 (0-8 ft) & 2000-11-22 00:00:00 & 15000.00 & 1123095 &
+1778168\tabularnewline
+TP-3 (0-4 ft) & 2000-11-22 00:00:00 & 4000.00 & 1123077 &
+1778141\tabularnewline
+TP-8 (0-8 ft) & 2000-11-22 00:00:00 & 13000.00 & 1122990 &
+1778180\tabularnewline
+AOC1-BH2 (17-18 ft) & 2004-10-17 00:00:00 & 860.00 & 1122963 &
+1778371\tabularnewline
+AOC1-BH4 (16.5-17 ft) & 2005-10-11 00:00:00 & 540.00 & 1122930 &
+1778274\tabularnewline
+AOC2-BH1 (15-16 ft) & 2004-10-15 00:00:00 & 450.00 & 1123013 &
+1778457\tabularnewline
+AOC2-BH2 (16-17 ft) & 2004-10-15 00:00:00 & 1320.00 & 1123019 &
+1778374\tabularnewline
+AOC2-BH2 (25-25.5 ft) & 2004-10-15 00:00:00 & 770.00 & 1123019 &
+1778374\tabularnewline
+AOC2-BH3 (15 ft) & 2004-10-17 00:00:00 & 1100.00 & 1123079 &
+1778334\tabularnewline
+AOC2-BH4 (19.5-21.5 ft) & 2004-10-17 00:00:00 & 354.00 & 1123022 &
+1778316\tabularnewline
+AOC2-MW5 (15.5-16.5 ft) & 2004-10-12 00:00:00 & 1090.00 & 1123102 &
+1778412\tabularnewline
+AOC2-TRCH2-W20 (17 ft) & 2004-09-27 00:00:00 & 657.00 & 1123043 &
+1778412\tabularnewline
+AOC4-BH1 (15 ft) & 2004-10-17 00:00:00 & 2520.00 & 1123147 &
+1778349\tabularnewline
+AOC4-BH1 (15 ft) Dup & 2004-10-17 00:00:00 & 2700.00 & 1123147 &
+1778349\tabularnewline
+AOC4-TRCH1-N10 (13 ft) & 2004-09-23 00:00:00 & 2910.00 & 1123149 &
+1778381\tabularnewline
+AOC4-TRCH1-S20 (13 ft) Dup & 2004-09-23 00:00:00 & 320.00 & 1123150 &
+1778343\tabularnewline
+AOC5-BH3 (18-20 ft) & 2004-10-16 00:00:00 & 1240.00 & 1123066 &
+1778139\tabularnewline
+AOC5-BH5 (16.5-17 ft) & 2005-10-11 00:00:00 & 610.00 & 1123056 &
+1777913\tabularnewline
+AOC5-MW11 (20-21 ft) & 2004-10-14 00:00:00 & 1700.00 & 1123131 &
+1778083\tabularnewline
+AOC5-TRCH1-N13 (14 ft) & 2004-09-22 00:00:00 & 2190.00 & 1122988 &
+1778205\tabularnewline
+AOC5-TRCH1-S30 (16 ft) & 2004-09-22 00:00:00 & 11700.00 & 1122994 &
+1778181\tabularnewline
+AOC5-TRCH6-SE25 (16 ft) & 2004-09-28 00:00:00 & 11150.00 & 1123219 &
+1778076\tabularnewline
+MW-12 (20-20.5 ft) & 2004-10-13 00:00:00 & 11850.00 & 1123215 &
+1778092\tabularnewline
+MW-9 (18-18.5 ft) & 2004-10-14 00:00:00 & 286.00 & 1123230 &
+1778199\tabularnewline
+\bottomrule
+\end{longtable}
+
+The mean of the above values of DRO+GRO is:
+
+\begin{verbatim}
+## [1] 4618.5
+\end{verbatim}
+
+\hypertarget{tph-to-lnapl-saturation-conversion}{%
+\subsection{TPH to LNAPL Saturation
+Conversion}\label{tph-to-lnapl-saturation-conversion}}
+
+The conversion from TPH to LNAPL saturation uses the grain density based
+equation described in
+\url{http://naplansr.com/conversion-of-tph-to-napl-saturation-volume-2-issue-1-january-2012/}.
+This equation is:
+\[S_n = TPH \cdot \left( \frac{(1-{\phi}) \cdot Grain \, Density \cdot 10^{-6}}{\phi\rho} \right)\]
+where \(\phi\) = porosity and \(\rho\) = LNAPL density.
+
+Using this equation and the following:\\
+* TPH = 4618.5 (the value calculated from the data above)\\
+* Grain Density = 2.65 g/cm3\\
+* LNAPL Density = 0.8 g/cm3\\
+* porosity = 0.348
+
+LNAPL saturation \(S_n\) is:
+
+\begin{verbatim}
+## [1] 0.02866323
+\end{verbatim}
+
+This value (2.87\%) is consistent with direct measurement of LNAPL
+saturation in site soil samples as reported in SECOR (2007) Appendix E.
+The average product saturation reported in SECOR (2007) Appendix E is
+2.0\%.
+
+\end{document}
