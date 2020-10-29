@@ -48,3 +48,5 @@ quantile(tph_shp[tph_shp$`DRO+GRO`>1000,]$`Y Coordinate`,.75)-quantile(tph_shp[t
 library(knitr)
 rmarkdown::render('Markdown.Rmd', output_file = "output.html")
 save(tbl1,file="tbl1.Rda")
+
+import<-read_csv("SECOR_AppendixE_data.csv")

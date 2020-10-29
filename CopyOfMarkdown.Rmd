@@ -1,0 +1,108 @@
+---
+title: "Attachment D"
+author: "Longevity Modeling Memo, Former Gordon Oil Refinery, Greybull, Wyoming"
+date: "10/29/2020"
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+library(knitr)
+library(readr)
+import<-read_csv("SECOR_AppendixE_data.csv")
+```
+
+## Permeability data from site soil samples
+
+Klinkenberg (1941) developed a method to correct gas permeability to equivalent liquid permeability. The Klinkenberg-corrected permeability approximates the liquid permeability. Klinkenberg permeabilities were reported in SECOR (2007) Appendix E for 11 soil samples.
+
+
+```{r cars, include=TRUE, echo=FALSE}
+kable(import,format="html")
+
+summary(import$`Klinkenberg Permeability (mD)`)
+```
+
+<br>
+The locations of these samples were reviewed versus the site 3D model and the smear zone body.  Sample AOC5-BH6 (11.25-11.75) 3-2A is the sample most associated with the smear zone in bedrock.  The permeability reported for this sample (2150 mD) is, coincidentally, equal to the median of the dataset.  Bedrock at the site is generally associated with low permeability, therefore samples AOC1-BH5 (17.00-17.50), AOC5-BH9 (16.50-17.00), AOC2-BH5 (16.00-16.50), and AOC6-BH2 (15.00-15.50) may also be representative of the upper bedrock zone.  Descriptive statistics on permeability in these samples follow:
+
+```{r mean, echo=TRUE}
+min(import$`Klinkenberg Permeability (mD)`[import$`Klinkenberg Permeability (mD)`<700])
+mean(import$`Klinkenberg Permeability (mD)`[import$`Klinkenberg Permeability (mD)`<700])
+max(import$`Klinkenberg Permeability (mD)`[import$`Klinkenberg Permeability (mD)`<700])
+```
+
+## Conversion of Permeability to Hydraulic Conducitvity  
+
+Hydraulic conductivity is related to the intrinsic permeability of an aquifer, but it is also affected by the physical properties of the fluid flowing through the medium.  The equation relating hydraulic conductivity and intrinsic permeability is:
+$$K = k_i \cdot \left( \frac{ \rho g }{\mu} \right)$$
+where  
+ * $K$ = hydraulic conductivty (cm/s)  
+ * $k_i$ = intrinsic permeability of the matrix ($cm^{-2}$)  
+ * $\rho$ = fluid density  (g/cc)  
+ * $g$ = gravitational acceleration (constant, which has a value of 981 centimeters per second per second)  
+ * $\mu$ = viscosity ($\frac{g}{cm \cdot s}$)  
+
+Using this equation and the following:  
+ * $k_i$ = 315.475 (mean of bedrock samples from above)  
+ * $\rho$ = 1 (assumed, for water)  
+ * $\mu$ = 89 ($\frac{g}{cm \cdot s}$), equal to 0.89 centipoise, a representative value for water  
+
+
+Hydraulic conductivity (K) would be equal to:
+
+```{r hydrcond, echo=FALSE}
+K<-function (ki, mu, rho, g) {
+  K=(ki*9.86923E-12*((rho*g)/mu))  # conversion factor is from millidarcy to cm2
+  return(K)
+  }
+ki<-315.45#intrisic permeability, millidarcy
+rho<-1  #  density
+g<-981  # gravitational constant
+mu<-89 # viscosity
+K(ki, mu, rho, g)  # hydraulic conducitvity
+```
+
+in centimeters per second or 
+
+```{r md, echo=FALSE}
+
+K(ki, mu, rho, g)/100*60*60*24 
+```
+
+
+in meters per day.  This is a reasonable "low" estimate for hydraulic conducitvity at the site.  
+
+If the following parameters are used, an analogous and slightly higher K is derived:  
+ * $k_i$ = 2150 (value from AOC5-BH6 (11.25-11.75), median of entire dataset, representative of smear zone in bedrock)  
+ * $\rho$ = 1 (assumed, for water)  
+ * $\mu$ = 89 ($\frac{g}{cm \cdot s}$), equal to 0.89 centipoise, a representative value for water  
+
+
+Hydraulic conductivity (K) would be equal to:
+
+```{r hydrcond2, echo=FALSE}
+ki<-2150#intrisic permeability, millidarcy
+rho<-1  #  density
+g<-981  # gravitational constant
+mu<-89 # viscosity
+K(ki, mu, rho, g)  # hydraulic conducitvity
+```
+
+## 
+in centimeters per second or 
+
+```{r md2, echo=FALSE}
+
+K(ki, mu, rho, g)/100*60*60*24 
+```
+
+
+in meters per day.
+
+## References
+
+Klinkenberg, L. J.: 1941, The permeability of porous media to liquids and gases, Drilling and Production Practice, American Petroleum Inst., pp. 200–213.
+
