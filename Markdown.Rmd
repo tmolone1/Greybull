@@ -8,6 +8,9 @@ output:
   pdf_document: default
 ---
 
+This attachment describes the conversion of site TPH data to LNAPL saturation (as percentage of effective porosity), which is an input to the longevity model.  This analysis was restricted to samples in excess of 250 mg/kg TPH on the rationale that the LNAPL saturation of the smear zone, or the source zone, is the relevant input to the model.
+
+
 ```{r setup, include=TRUE, echo=FALSE}
 ```
 

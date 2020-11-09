@@ -1,5 +1,5 @@
 ---
-title: "Attachment D"
+title: "Attachment D, Hydraulic Conductivity Values"
 author: "Longevity Modeling Memo, Former Gordon Oil Refinery, Greybull, Wyoming"
 date: "10/29/2020"
 output:
@@ -7,6 +7,19 @@ output:
   word_document: default
   pdf_document: default
 ---
+ 
+This attachment provides a summary of the hydraulic conductivity values used in the longevity model and the sources/rationale for using these inputs.  The longevity model is senstive to the input hydraulic conductivity, so a range of reasonable values was used, though not necessarily a range that encompasses all possible values of hydraulic conductivity at the site.
+
+
+Sandstone is the geologic material most commonly associated with the LNAPL smear zone at the site.  Hyrdaulic conductivity of sandstone can be widely variable depending on the grain size, sorting, and degree of consolidation (Driscoll 1986).  The SCR, page 2-4, provided a summary of hydraulic conductivity parameters previously used in modeling efforts at the site. The migration to groundwater evaluation used hydraulic conductivity of $1.24 \cdot 10^{-6}$ cm/sec based on the geometric mean of hydraulic conductivity ranges in published literature.  This value was used for the baseline scenario.
+
+
+The contaminant transport modeling evaluation used $3.53 \cdot 10^{-7}$ cm/sec based on the range of values for sandstones reported in Driscoll (1986).  Additionally, site-specific permeability data reported by SECOR (2007) were converted to hydraulic conductvity as described below.  The median of these data was $2.34 \cdot 10^{-7}$ cm/sec, which is very close to the value provided above from the contaminant transport modeling evaluation.  This value was used in the higher longevity scenario.
+
+The default value for hydraulic conductivity from the API model database for clayey sand is 0.0223 meters per day, or $2.58 \cdot 10^{-5}$ cm/sec, which is consistent with values near the upper end of the range of the SECOR (2007) dataset (i.e., 25500 millidarcy), but probably more representative of conditions in unconsolidated sediment rather than bedrock.  This value was used in the lower longevity scenario.
+
+These three values of hydraulic spanning this range of hydraulic conductivities considered reasonable on a large scale at the site.  The remainder of this attachement discusses the SECOR (2007) data, and the conversion of permeability to hydraulic conductivity.
+
 
 ```{r setup, include=FALSE, echo=FALSE}
 library(knitr)
@@ -104,5 +117,9 @@ in meters per day.
 
 ## References
 
+Driscoll, F.G.  1986.  Groundwater and wells.  Johnson Division, St. Paul, Minn., 1,089p.
+
 Klinkenberg, L. J.: 1941, The permeability of porous media to liquids and gases, Drilling and Production Practice, American Petroleum Inst., pp. 200–213.
+
+
 
