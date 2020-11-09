@@ -3,8 +3,8 @@ title: "Attachment C"
 author: "Longevity Modeling Memo, Former Gordon Oil Refinery, Greybull, Wyoming"
 date: "10/29/2020"
 output:
-  html_document: default
   word_document: default
+  html_document: default
   pdf_document: default
 ---
 
@@ -21,7 +21,7 @@ The Site Data Quality Objectives (DQOs) specify criteria to determine whether or
 ```{r cars, include=TRUE, echo=FALSE}
 library(knitr)
 load("tbl1.Rda")
-kable(tbl1,format="html")
+kable(tbl1,format="simple")
 
 
 ```

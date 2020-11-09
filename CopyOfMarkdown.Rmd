@@ -3,8 +3,8 @@ title: "Attachment D, Hydraulic Conductivity Values"
 author: "Longevity Modeling Memo, Former Gordon Oil Refinery, Greybull, Wyoming"
 date: "10/29/2020"
 output:
-  html_document: default
   word_document: default
+  html_document: default
   pdf_document: default
 ---
  
@@ -29,22 +29,17 @@ import<-read_csv("SECOR_AppendixE_data.csv")
 
 ## Permeability data from site soil samples
 
-Klinkenberg (1941) developed a method to correct gas permeability to equivalent liquid permeability. The Klinkenberg-corrected permeability approximates the liquid permeability. Klinkenberg permeabilities were reported in SECOR (2007) Appendix E for 11 soil samples.
+Klinkenberg (1941) developed a method to correct gas permeability to equivalent liquid permeability. The Klinkenberg-corrected permeability approximates the liquid permeability. Klinkenberg permeabilities were reported in SECOR (2007) Appendix E for 11 soil samples.  The following are summary statistics on the 11 reported Klickenberg permeability values:
 
 
-```{r cars, include=TRUE, echo=FALSE}
-kable(import,format="html")
-
+```{r cars, include=TRUE, echo=TRUE}
 summary(import$`Klinkenberg Permeability (mD)`)
 ```
 
-<br>
-The locations of these samples were reviewed versus the site 3D model and the smear zone body.  Sample AOC5-BH6 (11.25-11.75) 3-2A is the sample most associated with the smear zone in bedrock.  The permeability reported for this sample (2150 mD) is, coincidentally, equal to the median of the dataset.  Bedrock at the site is generally associated with low permeability, therefore samples AOC1-BH5 (17.00-17.50), AOC5-BH9 (16.50-17.00), AOC2-BH5 (16.00-16.50), and AOC6-BH2 (15.00-15.50) may also be representative of the upper bedrock zone.  Descriptive statistics on permeability in these samples follow:
+The locations of these samples were reviewed versus the site 3D model and the smear zone body.  Sample AOC5-BH6 (11.25-11.75) 3-2A is the sample most associated with the smear zone in bedrock.  The permeability reported for this sample (2150 mD) is, coincidentally, equal to the median of the dataset.  Bedrock at the site is generally associated with low permeability, therefore samples AOC1-BH5 (17.00-17.50), AOC5-BH9 (16.50-17.00), AOC2-BH5 (16.00-16.50), and AOC6-BH2 (15.00-15.50) may also be representative of the upper bedrock zone. The mean of these samples is:
 
-```{r mean, echo=TRUE}
-min(import$`Klinkenberg Permeability (mD)`[import$`Klinkenberg Permeability (mD)`<700])
+```{r meanbrperm, echo=FALSE}
 mean(import$`Klinkenberg Permeability (mD)`[import$`Klinkenberg Permeability (mD)`<700])
-max(import$`Klinkenberg Permeability (mD)`[import$`Klinkenberg Permeability (mD)`<700])
 ```
 
 ## Conversion of Permeability to Hydraulic Conducitvity  
@@ -88,11 +83,13 @@ K(ki, mu, rho, g)/100*60*60*24
 
 in meters per day.  This is a reasonable "low" estimate for hydraulic conducitvity at the site.  
 
-If the following parameters are used, an analogous and slightly higher K is derived:  
+
+
+
+If the following parameters are used, a slightly higher K is derived:  
  * $k_i$ = 2150 (value from AOC5-BH6 (11.25-11.75), median of entire dataset, representative of smear zone in bedrock)  
  * $\rho$ = 1 (assumed, for water)  
  * $\mu$ = 89 ($\frac{g}{cm \cdot s}$), equal to 0.89 centipoise, a representative value for water  
-
 
 Hydraulic conductivity (K) would be equal to:
 
@@ -111,7 +108,6 @@ in centimeters per second or
 
 K(ki, mu, rho, g)/100*60*60*24 
 ```
-
 
 in meters per day.
 
